@@ -4,13 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DFSMaze.Logic;
-using DFSMaze.Extentions;
+using Encoder = System.Text.Encoder;
 
 namespace DFSMaze
 {
@@ -46,7 +46,6 @@ namespace DFSMaze
             //    pointLabel.Text += $"\n {point.X},{point.Y}";
             //}
 
-
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
 
@@ -65,13 +64,13 @@ namespace DFSMaze
                 {
                     if (!byteGrid.Cell[i, j])
                     {
-                        //DrawCube(zoom, bitmap, i, j, Color.Black);
-                        bitmap.SetPixel(i, j, Color.Black);
+                        DrawCube(zoom, bitmap, i, j, Color.Black);
+                        //bitmap.SetPixel(i, j, Color.Black);
                     }
                     else 
                     {
-                        //DrawCube(zoom, bitmap, i, j, Color.CornflowerBlue);
-                        bitmap.SetPixel(i, j, Color.CornflowerBlue);
+                        DrawCube(zoom, bitmap, i, j, Color.AliceBlue);
+                        //bitmap.SetPixel(i, j, Color.AliceBlue);
                     }
 
                 }
@@ -81,22 +80,30 @@ namespace DFSMaze
 
             foreach (var point in byteGrid.WayOut1)
             {
-                //DrawCube(zoom, bitmap, point.X, point.Y, Color.Red);
-                bitmap.SetPixel(point.X , point.Y, Color.Red);
+                DrawCube(zoom, bitmap, point.X, point.Y, Color.CornflowerBlue);
+                //bitmap.SetPixel(point.X , point.Y, Color.CornflowerBlue);
             }
 
-            DrawCube(zoom, bitmap, enter.X * 2 + 1, enter.Y * 2 + 1, Color.Green);
-            DrawCube(zoom, bitmap, exit.X * 2 + 1, exit.Y * 2 + 1, Color.Green);
+            DrawCube(zoom, bitmap, enter.X * 2 + 1, enter.Y * 2 + 1, Color.Red);
+            DrawCube(zoom, bitmap, exit.X * 2 + 1, exit.Y * 2 + 1, Color.Red);
             
+
+            ImageCodecInfo myImageCodecInfo = GetEncoderInfo("image/jpeg");
+
+            var myEncoder = System.Drawing.Imaging.Encoder.Quality;
+            // Save the bitmap as a JPEG file with quality level 25.
+            var myEncoderParameter = new EncoderParameter(myEncoder, 25L);
+            EncoderParameters myEncoderParameters = new EncoderParameters();
+            myEncoderParameters.Param[0] = myEncoderParameter;
+
+            myEncoderParameter = new EncoderParameter(myEncoder, 100L);
+            myEncoderParameters.Param[0] = myEncoderParameter;
+            bitmap.Save("Shapes100.jpg", myImageCodecInfo, myEncoderParameters);
 
             stopWatch.Stop();
             ts = stopWatch.Elapsed;
             text += $"\n\n\nВремя\nотрисовки:\n{ts.Minutes:00}:{ts.Seconds:00}.{ts.Milliseconds:000000}";
             timeLabel.Text += text;
-            pictureBox.Image = bitmap;
-            pictureBox.Show();
-
-
 
             //byteGrid.FindWayOut(enter, exit);
 
@@ -105,14 +112,14 @@ namespace DFSMaze
             //    if((point.X==enter.X * 2 + 1 && point.Y == enter.Y * 2 + 1) || (point.X == exit.X * 2 + 1 && point.Y == exit.Y * 2 + 1))
             //    {
             //        DrawCube(zoom, bitmap, point.X, point.Y, Color.Green);
-                    
+
             //    }
             //    else
             //    {
             //        DrawCube(zoom, bitmap, point.X, point.Y, Color.Red);
             //    }
             //    //pointLabel.Text += $"\n {point.X},{point.Y}";
-                
+
             //}
 
             //pictureBox.Image = bitmap;
@@ -131,10 +138,17 @@ namespace DFSMaze
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private static ImageCodecInfo GetEncoderInfo(String mimeType)
         {
-
-
+            int j;
+            ImageCodecInfo[] encoders;
+            encoders = ImageCodecInfo.GetImageEncoders();
+            for (j = 0; j < encoders.Length; ++j)
+            {
+                if (encoders[j].MimeType == mimeType)
+                    return encoders[j];
+            }
+            return null;
         }
     }
 }

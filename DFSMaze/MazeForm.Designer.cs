@@ -41,16 +41,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.pictureBox = new System.Windows.Forms.PictureBox();
             this.timeLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // runButton
             // 
-            this.runButton.Location = new System.Drawing.Point(1497, 824);
+            this.runButton.Location = new System.Drawing.Point(127, 168);
             this.runButton.Name = "runButton";
-            this.runButton.Size = new System.Drawing.Size(75, 23);
+            this.runButton.Size = new System.Drawing.Size(97, 23);
             this.runButton.TabIndex = 0;
             this.runButton.Text = "Run";
             this.runButton.UseVisualStyleBackColor = true;
@@ -58,16 +56,16 @@
             // 
             // nTextBox
             // 
-            this.nTextBox.Location = new System.Drawing.Point(1497, 680);
+            this.nTextBox.Location = new System.Drawing.Point(127, 24);
             this.nTextBox.Name = "nTextBox";
-            this.nTextBox.Size = new System.Drawing.Size(75, 20);
+            this.nTextBox.Size = new System.Drawing.Size(97, 20);
             this.nTextBox.TabIndex = 1;
             this.nTextBox.Text = "3";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1555, 662);
+            this.label1.Location = new System.Drawing.Point(207, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(14, 15);
             this.label1.TabIndex = 2;
@@ -75,40 +73,40 @@
             // 
             // xEnterTextBox
             // 
-            this.xEnterTextBox.Location = new System.Drawing.Point(1497, 737);
+            this.xEnterTextBox.Location = new System.Drawing.Point(127, 81);
             this.xEnterTextBox.Name = "xEnterTextBox";
-            this.xEnterTextBox.Size = new System.Drawing.Size(25, 20);
+            this.xEnterTextBox.Size = new System.Drawing.Size(40, 20);
             this.xEnterTextBox.TabIndex = 3;
             this.xEnterTextBox.Text = "0";
             // 
             // yEnterTextBox
             // 
-            this.yEnterTextBox.Location = new System.Drawing.Point(1547, 737);
+            this.yEnterTextBox.Location = new System.Drawing.Point(186, 81);
             this.yEnterTextBox.Name = "yEnterTextBox";
-            this.yEnterTextBox.Size = new System.Drawing.Size(25, 20);
+            this.yEnterTextBox.Size = new System.Drawing.Size(38, 20);
             this.yEnterTextBox.TabIndex = 4;
             this.yEnterTextBox.Text = "0";
             // 
             // yExitTextBox
             // 
-            this.yExitTextBox.Location = new System.Drawing.Point(1547, 788);
+            this.yExitTextBox.Location = new System.Drawing.Point(186, 132);
             this.yExitTextBox.Name = "yExitTextBox";
-            this.yExitTextBox.Size = new System.Drawing.Size(25, 20);
+            this.yExitTextBox.Size = new System.Drawing.Size(38, 20);
             this.yExitTextBox.TabIndex = 6;
             this.yExitTextBox.Text = "3";
             // 
             // xExitTextBox
             // 
-            this.xExitTextBox.Location = new System.Drawing.Point(1497, 788);
+            this.xExitTextBox.Location = new System.Drawing.Point(127, 132);
             this.xExitTextBox.Name = "xExitTextBox";
-            this.xExitTextBox.Size = new System.Drawing.Size(25, 20);
+            this.xExitTextBox.Size = new System.Drawing.Size(40, 20);
             this.xExitTextBox.TabIndex = 5;
             this.xExitTextBox.Text = "3";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1538, 703);
+            this.label2.Location = new System.Drawing.Point(190, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 15);
             this.label2.TabIndex = 7;
@@ -117,7 +115,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1509, 719);
+            this.label3.Location = new System.Drawing.Point(139, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(13, 15);
             this.label3.TabIndex = 8;
@@ -126,7 +124,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1559, 719);
+            this.label4.Location = new System.Drawing.Point(211, 63);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(12, 15);
             this.label4.TabIndex = 9;
@@ -135,7 +133,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1558, 771);
+            this.label5.Location = new System.Drawing.Point(210, 115);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(12, 15);
             this.label5.TabIndex = 12;
@@ -144,7 +142,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1507, 771);
+            this.label6.Location = new System.Drawing.Point(137, 115);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(13, 15);
             this.label6.TabIndex = 11;
@@ -153,24 +151,16 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1543, 758);
+            this.label7.Location = new System.Drawing.Point(195, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "Exit";
             // 
-            // pictureBox
-            // 
-            this.pictureBox.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(1491, 847);
-            this.pictureBox.TabIndex = 13;
-            this.pictureBox.TabStop = false;
-            // 
             // timeLabel
             // 
             this.timeLabel.AutoSize = true;
-            this.timeLabel.Location = new System.Drawing.Point(1494, 9);
+            this.timeLabel.Location = new System.Drawing.Point(12, 9);
             this.timeLabel.Name = "timeLabel";
             this.timeLabel.Size = new System.Drawing.Size(0, 15);
             this.timeLabel.TabIndex = 14;
@@ -179,9 +169,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1618, 859);
+            this.ClientSize = new System.Drawing.Size(232, 204);
             this.Controls.Add(this.timeLabel);
-            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label7);
@@ -197,7 +186,6 @@
             this.Controls.Add(this.runButton);
             this.Name = "MazeForm";
             this.Text = "MazeForm";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +206,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.PictureBox pictureBox;
         private System.Windows.Forms.Label timeLabel;
     }
 }
