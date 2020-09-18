@@ -20,12 +20,11 @@ namespace DFSMaze
         private Point enter;
         private Point exit;
         private Bitmap bitmap;
-        private int zoom;
+
         private void runButton_Click(object sender, EventArgs e)
         {
             timeLabel.Text = "";
             var size = Convert.ToInt32(nTextBox.Text);
-            zoom = 8000 / size;
             var size2 = size*2+1;
             enter = new Point(Convert.ToInt32(xEnterTextBox.Text), Convert.ToInt32(yEnterTextBox.Text));
             exit = new Point(Convert.ToInt32(xExitTextBox.Text), Convert.ToInt32(yExitTextBox.Text));
@@ -62,7 +61,7 @@ namespace DFSMaze
             DrawIntoBitmap(tmp, size2);
 
 
-            Parallel.ForEach(byteGrid.WayOut1, (point) =>
+            Parallel.ForEach(byteGrid.WayOut, (point) =>
             {
                 tmp[point.Y * size2 + point.X] = Color.CornflowerBlue.ToArgb();
             });
@@ -80,6 +79,8 @@ namespace DFSMaze
             ts = stopWatch.Elapsed;
             text += $"\n\n\nВремя\nотрисовки:\n{ts.Minutes:00}:{ts.Seconds:00}.{ts.Milliseconds:000000}";
             timeLabel.Text += text;
+            bitmap = new Bitmap(1,1);
+            byteGrid = new ByteGrid(1);
         }
 
 
@@ -119,18 +120,14 @@ namespace DFSMaze
             });
         }
 
-
-
         private void SavePicture()
         {
             ImageCodecInfo myImageCodecInfo = GetEncoderInfo("image/jpeg");
 
-            var myEncoder = System.Drawing.Imaging.Encoder.Quality;
-            var myEncoderParameter = new EncoderParameter(myEncoder, 25L);
+            var myEncoder = Encoder.Quality;
             EncoderParameters myEncoderParameters = new EncoderParameters();
-            myEncoderParameters.Param[0] = myEncoderParameter;
 
-            myEncoderParameter = new EncoderParameter(myEncoder, 100L);
+            var myEncoderParameter = new EncoderParameter(myEncoder, 100L);
             myEncoderParameters.Param[0] = myEncoderParameter;
             bitmap.Save("Shapes100.jpg", myImageCodecInfo, myEncoderParameters);
         }

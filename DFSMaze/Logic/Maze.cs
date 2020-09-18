@@ -13,13 +13,10 @@ namespace DFSMaze.Logic
         public uint Count;
         public uint CellCount;
         public uint VisitedCount;
-        public Stack<Point> WayOut;
-        public Point[] WayOut1;
+        public Point[] WayOut;
         public Stack<Point> FullWay;
         public ByteGrid(uint n)
         {
-            WayOut = new Stack<Point>();
-
             FullWay = new Stack<Point>();
             VisitedCount = 0;
             CellCount = n * n;
@@ -29,9 +26,6 @@ namespace DFSMaze.Logic
             {
                 for (int j = 0; j < Count; ++j)
                 {
-                    //if ((i % 2 != 0 && j % 2 != 0) && (i < 2 * n && j < 2 * n))
-                    //если ячейка нечетная по x и y и при этом находится в пределах стен лабиринт
-
                     Cell[i, j] = false;
                 }
             }
@@ -97,7 +91,6 @@ namespace DFSMaze.Logic
             int iExit = exit.Y * 2 + 1;
             int jExit = exit.X * 2 + 1;
             FullWay.Push(new Point(iEnter, jEnter));
-            WayOut.Push(new Point(iExit, jExit));
             Cell[iEnter, jEnter] = true;
             ++VisitedCount;
             var neighbours = HasNeigboursToVisit(iEnter, jEnter);
@@ -117,8 +110,8 @@ namespace DFSMaze.Logic
 
                     if (iEnter == iExit && jEnter == jExit)
                     {
-                        WayOut1 = new Point[FullWay.Count];
-                        FullWay.CopyTo(WayOut1, 0);
+                        WayOut = new Point[FullWay.Count];
+                        FullWay.CopyTo(WayOut, 0);
                     }
                     neighbours = HasNeigboursToVisit(iEnter, jEnter);
                 }
